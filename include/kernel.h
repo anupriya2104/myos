@@ -50,6 +50,12 @@ void timer_init(uint32_t hz);
 uint32_t timer_ticks(void);
 void timer_sleep(uint32_t ms);
 void keyboard_init(void);
+
+typedef struct rtc_time {
+    uint8_t sec, min, hour, day, month;
+    uint16_t year;
+} rtc_time_t;
+void rtc_read(rtc_time_t *t);
 int  keyboard_getc_nonblock(void);
 
 /* ---------- memory ---------- */

@@ -96,6 +96,7 @@ static void cmd_help(void) {
             "  echo <text>       print text\n"
             "  uptime            ticks and seconds since boot (PIT @ 100 Hz)\n"
             "  sleep <ms>        sleep using timer interrupts\n"
+            "  date              date and time from the CMOS real-time clock\n"
             "  mem               physical frames and heap usage\n"
             "  heaptest          allocate/free and check the heap coalesces\n"
             "  alloc             allocate a physical frame\n"
@@ -128,6 +129,12 @@ void shell_run(void) {
             uint32_t t0 = timer_ticks();
             timer_sleep(atoi(arg));
             kprintf("slept %u ticks\n", timer_ticks() - t0);
+        }
+        else if (!strcmp(line, "date")) {
+            rtc_time_t t;
+            rtc_read(&t);
+            kprintf("%04u-%02u-%02u %02u:%02u:%02u UTC\n",
+                    t.year, t.month, t.day, t.hour, t.min, t.sec);
         }
         else if (!strcmp(line, "mem")) cmd_mem();
         else if (!strcmp(line, "heaptest")) cmd_heaptest();

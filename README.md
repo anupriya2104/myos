@@ -77,7 +77,7 @@ tests/run_tests.sh   Automated boot tests in QEMU
 
 ## Shell commands
 
-`help`, `clear`, `echo`, `uptime`, `sleep <ms>`, `mem`, `heaptest`, `alloc`, `translate <hex>`, `cpuid`, `color <fg> <bg>`, `pagefault`, `divzero`, `reboot`.
+`help`, `clear`, `echo`, `uptime`, `sleep <ms>`, `date`, `mem`, `heaptest`, `alloc`, `translate <hex>`, `cpuid`, `color <fg> <bg>`, `pagefault`, `divzero`, `reboot`.
 
 ## Next steps
 

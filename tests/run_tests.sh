@@ -21,6 +21,8 @@ check "unmapped va reported"         "is not mapped"
 check "heap coalesces after free"    "coalesced OK"
 check "timer sleep (500 ms = 50)"    "slept 5[01] ticks"
 check "shell echo"                   "hello kernel"
+OUT=$(run "date")
+check "RTC date"                     "20[0-9][0-9]-[01][0-9]-[0-3][0-9] [0-2][0-9]:[0-5][0-9]:[0-5][0-9] UTC"
 
 OUT=$(run "pagefault")
 check "page fault caught with CR2"   "cr2=0xdeadb000"
